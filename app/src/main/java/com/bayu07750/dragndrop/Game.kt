@@ -50,7 +50,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.customview.widget.ExploreByTouchHelper
 import com.bayu07750.dragndrop.ui.theme.DragNDropTheme
 import nl.dionsegijn.konfetti.compose.KonfettiView
 import nl.dionsegijn.konfetti.compose.OnParticleSystemUpdateListener
@@ -79,12 +78,10 @@ val Explode: List<Party>
 
 
 @Composable
-fun Numbers(
+fun Game(
     modifier: Modifier = Modifier,
 ) {
-    var items by remember {
-        mutableStateOf(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).shuffled())
-    }
+    var items by remember { mutableStateOf(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).shuffled()) }
 
     var selectedItemDragged by remember { mutableStateOf<Int?>(null) }
     val isSuccess by remember {
@@ -131,7 +128,7 @@ fun Numbers(
                 )
 
                 Surface(
-                    tonalElevation = 2.dp,
+                    tonalElevation = 3.dp,
                     border = BorderStroke(
                         width = 2.dp,
                         color = borderColor,
@@ -278,6 +275,6 @@ fun Numbers(
 @Composable
 fun PreviewResolveNumbers() {
     DragNDropTheme {
-        Numbers()
+        Game()
     }
 }
